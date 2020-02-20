@@ -10,7 +10,7 @@
         <div class="users-container">
             <div class="search-box">
                 <fa name="search" class="search-box__icon"></fa>
-                <input (input)="onSearchInput($event)"class="search-box__input" placeholder="Buscar por correo electrónico" [(ngModel)]="searchInput" (ngModelChange)='searchInputChanged.next($event)'>
+                <input class="search-box__input" placeholder="Buscar por correo electrónico" [(ngModel)]="searchInput" (ngModelChange)='searchInputChanged.next($event)'>
             </div>
             <div class="spinner-container" *ngIf="searching">
                 <fa class="spinner" name="spinner" animation="spin"></fa>Buscando...

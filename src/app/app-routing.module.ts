@@ -5,8 +5,8 @@ import { PersonDetailComponent } from './person-detail/person-detail.component';
 
 
 const routes: Routes = [
-  { path: 'people', component: HomeComponent},
-  { path: 'people/:id', component: PersonDetailComponent},
+  { path: 'people', component: HomeComponent}, //Ruta principal
+  { path: 'people/:id', component: PersonDetailComponent}, //Ruta para ver a detalle un usaurio
   {path: "**", redirectTo: '/people'}
 ];
 
