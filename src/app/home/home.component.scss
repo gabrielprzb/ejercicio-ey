@@ -1,0 +1,162 @@
+
+
+.home-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: 0 auto;
+   
+}
+
+.search-box {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search-box__icon {
+   margin-right: 15px;
+   font-size: 15px;
+   color: #797979;
+}
+
+.search-box__input {
+    border: none;
+    width: 100%;
+    font-size: 15px;
+    height: 30px;
+}
+
+.search-box__input:focus {
+    outline: none;
+}
+
+.boxes-container {
+   
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+.search-results {
+    overflow: scroll;
+  }
+
+.users-list {
+    padding: 0;
+    margin: 0;
+}
+
+.directory-container {
+    flex-basis: 60%;
+}
+
+.placeholder-container {
+    flex-basis: 30%;
+}
+
+.users-container {
+    background: white;
+    flex-basis: 60%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.add-container {
+    background: white;
+    flex-basis: 30%;
+    height: 100%;
+  
+    border-radius: 5px;
+    padding: 14px 20px;
+    position: relative;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+}
+
+
+
+
+.button--blue {
+    background: #0069ed;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    margin: 0;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.button--red {
+    background: #e91818;
+
+}
+
+.button--blue:hover,
+.button--blue:focus {
+    background: #0053ba;
+}
+
+.button--red:hover,
+.button--red:focus {
+    background: #870303;
+}
+
+
+.button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.button:active {
+    transform: scale(0.99);
+}
+
+.button__text {
+    font-size: 14px;
+    margin: 0;
+}
+
+.form {
+   
+    width: 100%;
+}
+
+.spinner-container, .not-found-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #e6ecf0;
+}
+
+.spinner {
+    margin-right: 10px;
+}
+

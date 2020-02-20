@@ -1,0 +1,76 @@
+<form (ngSubmit)="submitPerson(addForm.value)" [formGroup]="addForm" novalidate>
+    <div class="info-container">
+        <p class="info-header">Información</p>
+        <div class="form-group">
+            <label for="first_name">Nombre:</label>
+            <input id="first_name" type="text" placeholder="Name" formControlName="first_name" class="form-control" />
+            <div class="alert alert--red"
+                [hidden]="addForm.controls['first_name'].untouched || addForm.controls['first_name'].valid">Porfavor ingresa un nombre</div>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Apellidos:</label>
+            <input id="last_name" type="text" placeholder="Last name" formControlName="last_name"
+                class="form-control" />
+            <div class="alert alert--red"
+                [hidden]="addForm.controls['last_name'].untouched || addForm.controls['last_name'].valid">Porfavor ingresa apellidos</div>
+        </div>
+        <div class="form-group">
+            <label for="phone">Teléfono:</label>
+            <input id="phone" type="text" placeholder="Phone" formControlName="phone" class="form-control" />
+            <div class="alert alert--red"
+                [hidden]="addForm.controls['phone'].untouched || addForm.controls['phone'].valid">Porfavor ingresa un número telefónico
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="date_of_birth">Fecha de nacimiento:</label>
+            <input id="date_of_birth" type="date"  formControlName="date_of_birth" class="form-control" />
+            <div class="alert alert--red" [hidden]="addForm.controls['date_of_birth'].untouched || addForm.controls['date_of_birth'].valid">
+                Porfavor ingresa una fecha</div>
+        </div>
+    </div>
+
+
+    <div class="info-container">
+        
+        <p class="info-header">Correos electrónicos</p>
+        <p class="info-subheader">
+            <fa class="info-fa" name="info-circle"></fa>Agregue los correos electrónicos de más importante a menos importante
+        </p>
+        <div class="form-group">
+            <div formArrayName="emails" *ngFor="let email of formData.controls; let i = index;" >
+                <div [formGroupName]="i" class="email-form-group">
+                    <label>
+                        <span class="inner-no">{{i + 1}}</span>
+                    </label>
+                    <div class="email-div"> 
+                        <input formControlName="email" type="email" 
+                            placeholder="Email">
+                            
+                    </div>
+
+                    <fa *ngIf="i > 0" class="delete-input" (click)="deleteEmail(i)" name="minus-square"></fa>
+                </div>
+                <div class="alert alert--red" [hidden]="email.untouched || email.valid">
+                    Porfavor ingresa un correo electrónico válido</div>
+
+            </div>
+
+            <div class="add-email" (click)="addEmail()">
+                <fa class="add-email__icon" name="plus-circle"></fa>
+                <p class="add-email__text">Añadir otro correo</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button *ngIf="!addingLoader" type="submit" [disabled]="!addForm.valid" [class.button--blue]="addForm.valid" [class.button]="true" [class.disabled]="!addForm.valid">
+        <p class="button__text">Añadir</p>
+    </button>
+
+
+</form>
+
+
+<div class="adding-loader" *ngIf="addingLoader">
+    <fa class="fa-spin" name="spinner" animation="spin"></fa>Añadiendo persona...
+</div>

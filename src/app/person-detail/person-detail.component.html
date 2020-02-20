@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="goback-container" (click)="goBack()">
+        <fa class="fa-arrow" name="arrow-left"></fa><span>Regresar</span>
+    </div>
+    <div class="person-info">
+        <img class="person-info__profile-picture" src="assets/imgs/profile.jpeg" alt="">
+        <br>
+        <p class="info-header">Información</p>
+        <p *ngIf="!edit" (click)="editPerson()" class="edit-header"><fa class="pencil-fa" name="pencil"></fa>Editar</p>
+        <p *ngIf="edit" (click)="editPerson()" class="edit-header"><fa class="pencil-fa" name="times"></fa>Cancelar</p>
+        <p *ngIf="edit && !saving" (click)="submitEdit()" class="save-header"><fa class="pencil-fa" name="save"></fa>Guardar cambios</p>
+        <p *ngIf="edit && saving" (click)="submitEdit()" class="save-header"><fa class="spinner" name="spinner" animation="spin"></fa>Guardando</p>
+ 
+        <br>
+        <ul class="person-info__list">
+            <li class="person-info__information">
+                <span class="person-info__key">Nombre:</span>
+                <span *ngIf="!edit"  class="person-info__value">{{person?.first_name}}</span>
+                <input *ngIf="edit"  class="person-info__input" placeholder="Nombre" [(ngModel)]="personCopy.first_name">
+            </li>
+            <li class="person-info__information">
+                <span class="person-info__key">Apellidos:</span>
+                <span  *ngIf="!edit" class="person-info__value">{{person?.last_name}}</span>
+                <input *ngIf="edit"  class="person-info__input" placeholder="Appelidos" [(ngModel)]="personCopy.last_name">
+            </li>
+            <li class="person-info__information">
+                <span class="person-info__key">Teléfono:</span>
+                <span *ngIf="!edit" class="person-info__value">{{person?.phone}}</span>
+                <input *ngIf="edit"  class="person-info__input" placeholder="Teléfono" [(ngModel)]="personCopy.phone">
+            </li>
+            <li class="person-info__information">
+                <span class="person-info__key">Edad:</span>
+                <span *ngIf="!edit" class="person-info__value">{{person?.age}}</span>
+                <input *ngIf="edit"  type="date" class="person-info__input" [(ngModel)]="personCopy.date_of_birth">
+            </li>
+
+        </ul>
+
+    
+        <p class="info-header">Correos electrónicos</p>
+        <p *ngIf="edit" class="information-emails"> <fa class="info-fa" name="info-circle"></fa>Arrastre y suelte en la seccion azul para acomodar los correos por preferencia de 1 a {{emails.length}}, siendo 1 el correo más importante</p>
+        <br>
+        <div  *ngIf="edit" cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box--blue" *ngFor="let email of emails; let i = index" cdkDrag>
+                <span class="cdk-number">{{i + 1}}</span>
+                <input class="person-info__input" placeholder="Email" [(ngModel)]="email.email">
+            </div>
+
+          </div> 
+
+          <div  *ngIf="!edit"  class="example-list">
+            <div class="example-box" *ngFor="let email of emails; let i = index">
+                <span class="cdk-number">{{i + 1}}</span>
+                <span class="cdk-email">{{email.email}}</span>
+            </div>
+
+          </div> 
+          <button class="button button--red" (click)="deletePerson()">
+            <p class="button__text">Dar de baja</p>
+        </button>
+
+
+    </div>
+</div>

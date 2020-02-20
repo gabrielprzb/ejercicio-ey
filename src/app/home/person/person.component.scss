@@ -1,0 +1,58 @@
+.person {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgb(230, 236, 240);
+    cursor: pointer;
+   
+
+}
+
+.person:hover {
+    background-color: #F5F8FA;
+}
+
+
+.person__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-left: 15px;
+}
+
+
+
+.person__name {
+    margin: 0;
+    font-size: 17px;
+    color: rgb(18, 18, 18);
+    font-weight: 600;
+}
+
+.person__name:hover {
+    text-decoration: underline;
+}
+
+.person__description {
+    margin: 0;
+    color: rgb(186, 186, 186);
+}
+
+.persons-list {
+    list-style-type: none;
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+.person__image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    object-fit: cover;
+}

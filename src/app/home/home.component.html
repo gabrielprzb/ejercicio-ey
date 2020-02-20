@@ -1,0 +1,38 @@
+<div class="home-container">
+    <div class="header-container">
+        <div class="directory-container">
+            <h1>Directorio</h1>
+        </div>
+        <div class="placeholder-container">
+        </div>
+    </div>
+    <div class="boxes-container">
+        <div class="users-container">
+            <div class="search-box">
+                <fa name="search" class="search-box__icon"></fa>
+                <input (input)="onSearchInput($event)"class="search-box__input" placeholder="Buscar por correo electrónico" [(ngModel)]="searchInput" (ngModelChange)='searchInputChanged.next($event)'>
+            </div>
+            <div class="spinner-container" *ngIf="searching">
+                <fa class="spinner" name="spinner" animation="spin"></fa>Buscando...
+            </div>
+            <div class="not-found-container" *ngIf="notFound">
+               <span class="not-found">No se encontraron resultados</span>
+            </div>
+            <ul class="users-list" *ngIf="!searching">
+                <person *ngFor="let person of peopleService.people" [person]="person"></person>
+            </ul>
+     
+        </div>
+        <div class="add-container">
+    
+            <fa (click)="showForm()" *ngIf="toggleForm" name="times" class="close"></fa>
+            <button class="button button--blue" (click)="showForm()" *ngIf="!toggleForm">
+                <p class="button__text">Añadir persona</p>
+            </button>
+            <div class="form" *ngIf="toggleForm">
+                <add-person (added)="added()"></add-person>
+            </div>
+        </div>
+    </div>
+
+</div>
