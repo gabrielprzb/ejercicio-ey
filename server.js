@@ -39,7 +39,7 @@ class Server {
     }
 
     initExpressMiddleWare() {
-        app.use(express.static(__dirname + '/dist/dtg-web'));
+        app.use(express.static(__dirname + '/dist/exercise-ey'));
         app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
         app.use(bodyParser.json({ limit: '1mb' }));
 
