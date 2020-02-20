@@ -23,7 +23,7 @@ export class PeopleService {
     updatePerson(id: string, data: any) {
         let headers = new HttpHeaders();
         headers = headers.append('Content-Type', 'application/json');
-        return this.http.put('http://localhost:3000/api/people/' + id, data, {headers})
+        return this.http.put('http://ejercicio-ey.herokuapp.com/api/people/' + id, data, {headers})
             .pipe(
                 catchError(this.handleError));
     }
@@ -31,19 +31,19 @@ export class PeopleService {
     newPerson(data: any) {
         let headers = new HttpHeaders();
         headers = headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/api/people/', data, {headers})
+        return this.http.post('http://ejercicio-ey.herokuapp.com/api/people/', data, {headers})
             .pipe(
                 catchError(this.handleError));
     }
 
     deletePerson(id: string) {
-        return this.http.delete('http://localhost:3000/api/people/' + id)
+        return this.http.delete('http://ejercicio-ey.herokuapp.com/api/people/' + id)
             .pipe(
                 catchError(this.handleError));
     }
 
     searchPersonByEmail(searchInput: string) {
-        return this.http.get('http://localhost:3000/api/people/search?searchInput=' + searchInput)
+        return this.http.get('http://ejercicio-ey.herokuapp.com/api/people/search?searchInput=' + searchInput)
                         .pipe(   
                         catchError(this.handleError));
     }
