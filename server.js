@@ -67,7 +67,7 @@ class Server {
 
         router.load(app, './controllers');
         app.all('/*', (req, res) => {
-            res.sendFile(__dirname + '/dist/index.html');
+            res.sendFile(__dirname + '/dist/exercise-ey/index.html');
         });
 
     }
